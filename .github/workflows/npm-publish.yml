@@ -19,7 +19,6 @@ jobs:
           registry-url: https://registry.npmjs.org/
 
       - name: Install dependencies
-        working-directory: zoompinch-vue
         run: npm install
 
       - name: Build
