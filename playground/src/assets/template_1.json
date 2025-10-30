@@ -1,0 +1,2465 @@
+{
+  "name": "dfgdfg",
+  "bxCoreVersion": "0.1.230",
+  "isOnboarding": true,
+  "fonts": [
+    {
+      "name": "Poppins",
+      "src": "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    }
+  ],
+  "fields": [
+    {
+      "type": "Text",
+      "description": "Enter text",
+      "model": {
+        "modelValue": "text2_text"
+      },
+      "props": {
+        "maxHeight": "calc(2*1.2em + 5px * 2)",
+        "clearable": false,
+        "maxLength": null,
+        "maxLineLength": null,
+        "maxLines": null,
+        "multiline": true,
+        "placeholder": "",
+        "showWordCount": false,
+        "uppercase": false,
+        "richtext": {
+          "enabled": false,
+          "mixedStyleLabel": {
+            "en": "Mixed Style"
+          },
+          "noStyleLabel": {
+            "en": "No Style"
+          },
+          "userAgentRichText": false,
+          "options": []
+        }
+      },
+      "layout": {
+        "minWidth": "120px",
+        "maxWidth": "auto"
+      }
+    },
+    {
+      "type": "Text",
+      "description": "Enter text",
+      "model": {
+        "modelValue": "Text"
+      },
+      "props": {
+        "maxHeight": "calc(2*1.2em + 5px * 2)",
+        "clearable": false,
+        "maxLength": null,
+        "maxLineLength": null,
+        "maxLines": null,
+        "multiline": true,
+        "placeholder": "",
+        "showWordCount": false,
+        "uppercase": false,
+        "richtext": {
+          "enabled": false,
+          "mixedStyleLabel": {
+            "en": "Mixed Style"
+          },
+          "noStyleLabel": {
+            "en": "No Style"
+          },
+          "userAgentRichText": false,
+          "options": []
+        }
+      },
+      "layout": {
+        "minWidth": "120px",
+        "maxWidth": "auto"
+      }
+    }
+  ],
+  "meta": {
+    "format": "1:1",
+    "fields": [],
+    "tags": [],
+    "target": "undefined_1:1"
+  },
+  "width": 1080,
+  "height": 1080,
+  "grid": {
+    "horizontal": [],
+    "vertical": []
+  },
+  "animation": {
+    "enabled": false,
+    "duration": 60,
+    "fps": 30
+  },
+  "gridMode": "alt",
+  "context": [
+    {
+      "name": "group",
+      "id": "group5",
+      "properties": {
+        "v-transform-origin": {
+          "type": "expression",
+          "value": "[450, 440]"
+        },
+        "v-show": {
+          "type": "expression",
+          "value": "true"
+        },
+        "invert": {
+          "type": "expression",
+          "value": "false"
+        },
+        "colorMasking": {
+          "type": "expression",
+          "value": "false"
+        }
+      },
+      "transform": {
+        "translateX": {
+          "type": "expression",
+          "value": "0"
+        },
+        "translateY": {
+          "type": "expression",
+          "value": "0"
+        },
+        "skewX": {
+          "type": "expression",
+          "value": "0"
+        },
+        "skewY": {
+          "type": "expression",
+          "value": "0"
+        },
+        "scaleX": {
+          "type": "expression",
+          "value": "1"
+        },
+        "scaleY": {
+          "type": "expression",
+          "value": "1"
+        },
+        "rotate": {
+          "type": "expression",
+          "value": "0"
+        }
+      },
+      "filter": {
+        "blur": {
+          "type": "expression",
+          "value": "null"
+        },
+        "grayscale": {
+          "type": "expression",
+          "value": "null"
+        },
+        "sepia": {
+          "type": "expression",
+          "value": "null"
+        },
+        "exposure": {
+          "type": "expression",
+          "value": "null"
+        },
+        "brightness": {
+          "type": "expression",
+          "value": "null"
+        },
+        "saturate": {
+          "type": "expression",
+          "value": "null"
+        },
+        "contrast": {
+          "type": "expression",
+          "value": "null"
+        },
+        "invert": {
+          "type": "expression",
+          "value": "null"
+        },
+        "gradientMap": {
+          "type": "expression",
+          "value": "null"
+        },
+        "hueRotate": {
+          "type": "expression",
+          "value": "null"
+        },
+        "opacity": {
+          "type": "expression",
+          "value": "null"
+        },
+        "dropShadow": {
+          "type": "expression",
+          "value": "null"
+        }
+      },
+      "iteration": null,
+      "slots": {
+        "default": [
+          {
+            "name": "rectangle",
+            "id": "rectangle3",
+            "properties": {
+              "v-transform-origin": {
+                "type": "expression",
+                "value": "[450, 440]"
+              },
+              "v-show": {
+                "type": "expression",
+                "value": "true"
+              },
+              "pos": {
+                "type": "expression",
+                "value": "[0, 0]"
+              },
+              "x": {
+                "type": "expression",
+                "value": "400"
+              },
+              "y": {
+                "type": "expression",
+                "value": "400"
+              },
+              "width": {
+                "type": "expression",
+                "value": "100"
+              },
+              "height": {
+                "type": "expression",
+                "value": "80"
+              },
+              "fill": {
+                "type": "expression",
+                "value": "`#ff00ff`"
+              },
+              "stroke": {
+                "type": "expression",
+                "value": "`#ff0000`"
+              },
+              "strokeWidth": {
+                "type": "expression",
+                "value": "0"
+              },
+              "strokeDasharray": {
+                "type": "expression",
+                "value": "[0, 0]"
+              },
+              "strokeDashoffset": {
+                "type": "expression",
+                "value": "0"
+              },
+              "opacity": {
+                "type": "expression",
+                "value": "1"
+              },
+              "radius": {
+                "type": "expression",
+                "value": "[0, 0, 0, 0]"
+              }
+            },
+            "transform": {
+              "translateX": {
+                "type": "expression",
+                "value": "0"
+              },
+              "translateY": {
+                "type": "expression",
+                "value": "0"
+              },
+              "skewX": {
+                "type": "expression",
+                "value": "0"
+              },
+              "skewY": {
+                "type": "expression",
+                "value": "0"
+              },
+              "scaleX": {
+                "type": "expression",
+                "value": "1"
+              },
+              "scaleY": {
+                "type": "expression",
+                "value": "1"
+              },
+              "rotate": {
+                "type": "expression",
+                "value": "45"
+              }
+            },
+            "filter": {
+              "blur": {
+                "type": "expression",
+                "value": "null"
+              },
+              "grayscale": {
+                "type": "expression",
+                "value": "null"
+              },
+              "sepia": {
+                "type": "expression",
+                "value": "null"
+              },
+              "exposure": {
+                "type": "expression",
+                "value": "null"
+              },
+              "brightness": {
+                "type": "expression",
+                "value": "null"
+              },
+              "saturate": {
+                "type": "expression",
+                "value": "null"
+              },
+              "contrast": {
+                "type": "expression",
+                "value": "null"
+              },
+              "invert": {
+                "type": "expression",
+                "value": "null"
+              },
+              "gradientMap": {
+                "type": "expression",
+                "value": "null"
+              },
+              "hueRotate": {
+                "type": "expression",
+                "value": "null"
+              },
+              "opacity": {
+                "type": "expression",
+                "value": "null"
+              },
+              "dropShadow": {
+                "type": "expression",
+                "value": "null"
+              }
+            },
+            "iteration": null,
+            "bx-tracking-id": "27n7OhH8PGqQpcrSluxq7"
+          }
+        ]
+      },
+      "bx-tracking-id": "SLaSSjFDtFZRNcTRKkoZT"
+    },
+    {
+      "name": "text",
+      "id": "text4",
+      "properties": {
+        "v-transform-origin": {
+          "type": "expression",
+          "value": "[43, 574]"
+        },
+        "v-show": {
+          "type": "expression",
+          "value": "true"
+        },
+        "text": {
+          "type": "expression",
+          "value": "`Lorem ipsum dolor`"
+        },
+        "richText": {
+          "type": "expression",
+          "value": "[{ text: `hello world`, format: {} }]"
+        },
+        "textMode": {
+          "type": "expression",
+          "value": "`plaintext`"
+        },
+        "autoLinebreaks": {
+          "type": "expression",
+          "value": "true"
+        },
+        "autoLinebreaksAllowBreakChars": {
+          "type": "expression",
+          "value": "false"
+        },
+        "bounding": {
+          "type": "expression",
+          "value": "`font`"
+        },
+        "x": {
+          "type": "expression",
+          "value": "43"
+        },
+        "y": {
+          "type": "expression",
+          "value": "574"
+        },
+        "pos": {
+          "type": "expression",
+          "value": "[0, 0]"
+        },
+        "width": {
+          "type": "expression",
+          "value": "531"
+        },
+        "height": {
+          "type": "expression",
+          "value": "134"
+        },
+        "fontSize": {
+          "type": "expression",
+          "value": "52"
+        },
+        "textAlign": {
+          "type": "expression",
+          "value": "0"
+        },
+        "fontWeight": {
+          "type": "expression",
+          "value": "400"
+        },
+        "fontFamily": {
+          "type": "expression",
+          "value": "`Inter`"
+        },
+        "fontStretch": {
+          "type": "expression",
+          "value": "`normal`"
+        },
+        "fontStyle": {
+          "type": "expression",
+          "value": "`normal`"
+        },
+        "lineHeight": {
+          "type": "expression",
+          "value": "1.1"
+        },
+        "letterSpacing": {
+          "type": "expression",
+          "value": "1"
+        },
+        "fill": {
+          "type": "expression",
+          "value": "`#000000`"
+        },
+        "stroke": {
+          "type": "expression",
+          "value": "`#00ff00`"
+        },
+        "strokeWidth": {
+          "type": "expression",
+          "value": "0"
+        },
+        "strokeDasharray": {
+          "type": "expression",
+          "value": "[0]"
+        },
+        "strokeDashoffset": {
+          "type": "expression",
+          "value": "0"
+        },
+        "opacity": {
+          "type": "expression",
+          "value": "1"
+        },
+        "rotateLine": {
+          "type": "expression",
+          "value": "0"
+        },
+        "rotateChar": {
+          "type": "expression",
+          "value": "0"
+        },
+        "lineSkewX": {
+          "type": "expression",
+          "value": "0"
+        },
+        "lineSkewY": {
+          "type": "expression",
+          "value": "0"
+        },
+        "uppercase": {
+          "type": "expression",
+          "value": "false"
+        },
+        "type": {
+          "type": "expression",
+          "value": "`box`"
+        },
+        "features": {
+          "type": "expression",
+          "value": "[]"
+        },
+        "textOnPathBaseline": {
+          "type": "expression",
+          "value": "`baseline`"
+        },
+        "textOnPathDelta": {
+          "type": "expression",
+          "value": "0"
+        },
+        "textOnPathInnerGlyphAnchor": {
+          "type": "expression",
+          "value": "`middle`"
+        },
+        "textOnPathOffset": {
+          "type": "expression",
+          "value": "[0, 0]"
+        }
+      },
+      "transform": {
+        "translateX": {
+          "type": "expression",
+          "value": "0"
+        },
+        "translateY": {
+          "type": "expression",
+          "value": "0"
+        },
+        "skewX": {
+          "type": "expression",
+          "value": "0"
+        },
+        "skewY": {
+          "type": "expression",
+          "value": "0"
+        },
+        "scaleX": {
+          "type": "expression",
+          "value": "1"
+        },
+        "scaleY": {
+          "type": "expression",
+          "value": "1"
+        },
+        "rotate": {
+          "type": "expression",
+          "value": "0"
+        }
+      },
+      "filter": {
+        "blur": {
+          "type": "expression",
+          "value": "null"
+        },
+        "grayscale": {
+          "type": "expression",
+          "value": "null"
+        },
+        "sepia": {
+          "type": "expression",
+          "value": "null"
+        },
+        "exposure": {
+          "type": "expression",
+          "value": "null"
+        },
+        "brightness": {
+          "type": "expression",
+          "value": "null"
+        },
+        "saturate": {
+          "type": "expression",
+          "value": "null"
+        },
+        "contrast": {
+          "type": "expression",
+          "value": "null"
+        },
+        "invert": {
+          "type": "expression",
+          "value": "null"
+        },
+        "gradientMap": {
+          "type": "expression",
+          "value": "null"
+        },
+        "hueRotate": {
+          "type": "expression",
+          "value": "null"
+        },
+        "opacity": {
+          "type": "expression",
+          "value": "null"
+        },
+        "dropShadow": {
+          "type": "expression",
+          "value": "null"
+        }
+      },
+      "iteration": null,
+      "bx-tracking-id": "o5hTxjGWp5SD4dAL3adVJ"
+    },
+    {
+      "name": "circle",
+      "id": "circle1",
+      "properties": {
+        "v-transform-origin": {
+          "type": "expression",
+          "value": "[933.5, 80.41077]"
+        },
+        "v-show": {
+          "type": "expression",
+          "value": "true"
+        },
+        "pos": {
+          "type": "expression",
+          "value": "[0.5, 0.5]"
+        },
+        "x": {
+          "type": "expression",
+          "value": "933.5"
+        },
+        "y": {
+          "type": "expression",
+          "value": "80.41077"
+        },
+        "radius": {
+          "type": "expression",
+          "value": "[34.5, 50]"
+        },
+        "fill": {
+          "type": "expression",
+          "value": "`#ED6A6AFF`"
+        },
+        "stroke": {
+          "type": "expression",
+          "value": "`#ff0000`"
+        },
+        "strokeWidth": {
+          "type": "expression",
+          "value": "0"
+        },
+        "strokeDasharray": {
+          "type": "expression",
+          "value": "[0, 0]"
+        },
+        "strokeDashoffset": {
+          "type": "expression",
+          "value": "0"
+        },
+        "opacity": {
+          "type": "expression",
+          "value": "1"
+        }
+      },
+      "transform": {
+        "translateX": {
+          "type": "expression",
+          "value": "0"
+        },
+        "translateY": {
+          "type": "expression",
+          "value": "0"
+        },
+        "skewX": {
+          "type": "expression",
+          "value": "0"
+        },
+        "skewY": {
+          "type": "expression",
+          "value": "0"
+        },
+        "scaleX": {
+          "type": "expression",
+          "value": "1"
+        },
+        "scaleY": {
+          "type": "expression",
+          "value": "1"
+        },
+        "rotate": {
+          "type": "expression",
+          "value": "91"
+        }
+      },
+      "filter": {
+        "blur": {
+          "type": "expression",
+          "value": "null"
+        },
+        "grayscale": {
+          "type": "expression",
+          "value": "null"
+        },
+        "sepia": {
+          "type": "expression",
+          "value": "null"
+        },
+        "exposure": {
+          "type": "expression",
+          "value": "null"
+        },
+        "brightness": {
+          "type": "expression",
+          "value": "null"
+        },
+        "saturate": {
+          "type": "expression",
+          "value": "null"
+        },
+        "contrast": {
+          "type": "expression",
+          "value": "null"
+        },
+        "invert": {
+          "type": "expression",
+          "value": "null"
+        },
+        "gradientMap": {
+          "type": "expression",
+          "value": "null"
+        },
+        "hueRotate": {
+          "type": "expression",
+          "value": "null"
+        },
+        "opacity": {
+          "type": "expression",
+          "value": "null"
+        },
+        "dropShadow": {
+          "type": "expression",
+          "value": "null"
+        }
+      },
+      "iteration": null,
+      "bx-tracking-id": "b1jy9Skvhqh3tEC6xpMwI"
+    },
+    {
+      "name": "group",
+      "id": "group4",
+      "properties": {
+        "v-transform-origin": {
+          "type": "expression",
+          "value": "[80.5, 57.5521]"
+        },
+        "v-show": {
+          "type": "expression",
+          "value": "true"
+        },
+        "invert": {
+          "type": "expression",
+          "value": "false"
+        },
+        "colorMasking": {
+          "type": "expression",
+          "value": "false"
+        }
+      },
+      "transform": {
+        "translateX": {
+          "type": "expression",
+          "value": "0"
+        },
+        "translateY": {
+          "type": "expression",
+          "value": "0"
+        },
+        "skewX": {
+          "type": "expression",
+          "value": "0"
+        },
+        "skewY": {
+          "type": "expression",
+          "value": "0"
+        },
+        "scaleX": {
+          "type": "expression",
+          "value": "1"
+        },
+        "scaleY": {
+          "type": "expression",
+          "value": "1"
+        },
+        "rotate": {
+          "type": "expression",
+          "value": "12"
+        }
+      },
+      "filter": {
+        "blur": {
+          "type": "expression",
+          "value": "null"
+        },
+        "grayscale": {
+          "type": "expression",
+          "value": "null"
+        },
+        "sepia": {
+          "type": "expression",
+          "value": "null"
+        },
+        "exposure": {
+          "type": "expression",
+          "value": "null"
+        },
+        "brightness": {
+          "type": "expression",
+          "value": "null"
+        },
+        "saturate": {
+          "type": "expression",
+          "value": "null"
+        },
+        "contrast": {
+          "type": "expression",
+          "value": "null"
+        },
+        "invert": {
+          "type": "expression",
+          "value": "null"
+        },
+        "gradientMap": {
+          "type": "expression",
+          "value": "null"
+        },
+        "hueRotate": {
+          "type": "expression",
+          "value": "null"
+        },
+        "opacity": {
+          "type": "expression",
+          "value": "null"
+        },
+        "dropShadow": {
+          "type": "expression",
+          "value": "null"
+        }
+      },
+      "iteration": null,
+      "slots": {
+        "default": [
+          {
+            "name": "circle",
+            "id": "circle2",
+            "properties": {
+              "v-transform-origin": {
+                "type": "expression",
+                "value": "[40, 82.99996]"
+              },
+              "v-show": {
+                "type": "expression",
+                "value": "true"
+              },
+              "pos": {
+                "type": "expression",
+                "value": "[0.5, 0.5]"
+              },
+              "x": {
+                "type": "expression",
+                "value": "40"
+              },
+              "y": {
+                "type": "expression",
+                "value": "82.99996"
+              },
+              "radius": {
+                "type": "expression",
+                "value": "[25.5, 25.44786]"
+              },
+              "fill": {
+                "type": "expression",
+                "value": "`#3982E8FF`"
+              },
+              "stroke": {
+                "type": "expression",
+                "value": "`#ff0000`"
+              },
+              "strokeWidth": {
+                "type": "expression",
+                "value": "0"
+              },
+              "strokeDasharray": {
+                "type": "expression",
+                "value": "[0, 0]"
+              },
+              "strokeDashoffset": {
+                "type": "expression",
+                "value": "0"
+              },
+              "opacity": {
+                "type": "expression",
+                "value": "1"
+              }
+            },
+            "transform": {
+              "translateX": {
+                "type": "expression",
+                "value": "758"
+              },
+              "translateY": {
+                "type": "expression",
+                "value": "0"
+              },
+              "skewX": {
+                "type": "expression",
+                "value": "0"
+              },
+              "skewY": {
+                "type": "expression",
+                "value": "0"
+              },
+              "scaleX": {
+                "type": "expression",
+                "value": "1"
+              },
+              "scaleY": {
+                "type": "expression",
+                "value": "1"
+              },
+              "rotate": {
+                "type": "expression",
+                "value": "0"
+              }
+            },
+            "filter": {
+              "blur": {
+                "type": "expression",
+                "value": "null"
+              },
+              "grayscale": {
+                "type": "expression",
+                "value": "null"
+              },
+              "sepia": {
+                "type": "expression",
+                "value": "null"
+              },
+              "exposure": {
+                "type": "expression",
+                "value": "null"
+              },
+              "brightness": {
+                "type": "expression",
+                "value": "null"
+              },
+              "saturate": {
+                "type": "expression",
+                "value": "null"
+              },
+              "contrast": {
+                "type": "expression",
+                "value": "null"
+              },
+              "invert": {
+                "type": "expression",
+                "value": "null"
+              },
+              "gradientMap": {
+                "type": "expression",
+                "value": "null"
+              },
+              "hueRotate": {
+                "type": "expression",
+                "value": "null"
+              },
+              "opacity": {
+                "type": "expression",
+                "value": "null"
+              },
+              "dropShadow": {
+                "type": "expression",
+                "value": "null"
+              }
+            },
+            "iteration": null,
+            "bx-tracking-id": "PQldnrTFNFjuXkM0D-7Z7"
+          },
+          {
+            "name": "rectangle",
+            "id": "rectangle2",
+            "properties": {
+              "v-transform-origin": {
+                "type": "expression",
+                "value": "[46.5, 83]"
+              },
+              "v-show": {
+                "type": "expression",
+                "value": "true"
+              },
+              "pos": {
+                "type": "expression",
+                "value": "[0, 0]"
+              },
+              "x": {
+                "type": "expression",
+                "value": "46.5"
+              },
+              "y": {
+                "type": "expression",
+                "value": "83"
+              },
+              "width": {
+                "type": "expression",
+                "value": "73.13091"
+              },
+              "height": {
+                "type": "expression",
+                "value": "65"
+              },
+              "fill": {
+                "type": "expression",
+                "value": "`#3982E8FF`"
+              },
+              "stroke": {
+                "type": "expression",
+                "value": "`#ff0000`"
+              },
+              "strokeWidth": {
+                "type": "expression",
+                "value": "0"
+              },
+              "strokeDasharray": {
+                "type": "expression",
+                "value": "[0, 0]"
+              },
+              "strokeDashoffset": {
+                "type": "expression",
+                "value": "0"
+              },
+              "opacity": {
+                "type": "expression",
+                "value": "1"
+              },
+              "radius": {
+                "type": "expression",
+                "value": "[0, 0, 0, 0]"
+              }
+            },
+            "transform": {
+              "translateX": {
+                "type": "expression",
+                "value": "34"
+              },
+              "translateY": {
+                "type": "expression",
+                "value": "30"
+              },
+              "skewX": {
+                "type": "expression",
+                "value": "220"
+              },
+              "skewY": {
+                "type": "expression",
+                "value": "0"
+              },
+              "scaleX": {
+                "type": "expression",
+                "value": "1.51"
+              },
+              "scaleY": {
+                "type": "expression",
+                "value": "1"
+              },
+              "rotate": {
+                "type": "expression",
+                "value": "13"
+              }
+            },
+            "filter": {
+              "blur": {
+                "type": "expression",
+                "value": "null"
+              },
+              "grayscale": {
+                "type": "expression",
+                "value": "null"
+              },
+              "sepia": {
+                "type": "expression",
+                "value": "null"
+              },
+              "exposure": {
+                "type": "expression",
+                "value": "null"
+              },
+              "brightness": {
+                "type": "expression",
+                "value": "null"
+              },
+              "saturate": {
+                "type": "expression",
+                "value": "null"
+              },
+              "contrast": {
+                "type": "expression",
+                "value": "null"
+              },
+              "invert": {
+                "type": "expression",
+                "value": "null"
+              },
+              "gradientMap": {
+                "type": "expression",
+                "value": "null"
+              },
+              "hueRotate": {
+                "type": "expression",
+                "value": "null"
+              },
+              "opacity": {
+                "type": "expression",
+                "value": "null"
+              },
+              "dropShadow": {
+                "type": "expression",
+                "value": "null"
+              }
+            },
+            "iteration": null,
+            "bx-tracking-id": "27n7OhH8PGqQpcrSluxqx"
+          }
+        ]
+      },
+      "bx-tracking-id": "SLaSSjFDtFZRNcTRKkoZT"
+    },
+    {
+      "name": "text",
+      "id": "text3",
+      "properties": {
+        "v-transform-origin": {
+          "type": "expression",
+          "value": "[811, 618.5]"
+        },
+        "v-show": {
+          "type": "expression",
+          "value": "true"
+        },
+        "text": {
+          "type": "expression",
+          "value": "`Lorem ipsum dolor`"
+        },
+        "richText": {
+          "type": "expression",
+          "value": "[{ text: `hello world`, format: {} }]"
+        },
+        "textMode": {
+          "type": "expression",
+          "value": "`plaintext`"
+        },
+        "autoLinebreaks": {
+          "type": "expression",
+          "value": "true"
+        },
+        "autoLinebreaksAllowBreakChars": {
+          "type": "expression",
+          "value": "false"
+        },
+        "bounding": {
+          "type": "expression",
+          "value": "`font`"
+        },
+        "x": {
+          "type": "expression",
+          "value": "811"
+        },
+        "y": {
+          "type": "expression",
+          "value": "618.5"
+        },
+        "pos": {
+          "type": "expression",
+          "value": "[1, 0.5]"
+        },
+        "width": {
+          "type": "expression",
+          "value": "739"
+        },
+        "height": {
+          "type": "expression",
+          "value": "109"
+        },
+        "fontSize": {
+          "type": "expression",
+          "value": "52"
+        },
+        "textAlign": {
+          "type": "expression",
+          "value": "0"
+        },
+        "fontWeight": {
+          "type": "expression",
+          "value": "400"
+        },
+        "fontFamily": {
+          "type": "expression",
+          "value": "`Inter`"
+        },
+        "fontStretch": {
+          "type": "expression",
+          "value": "`normal`"
+        },
+        "fontStyle": {
+          "type": "expression",
+          "value": "`normal`"
+        },
+        "lineHeight": {
+          "type": "expression",
+          "value": "1.1"
+        },
+        "letterSpacing": {
+          "type": "expression",
+          "value": "1"
+        },
+        "fill": {
+          "type": "expression",
+          "value": "`#000000`"
+        },
+        "stroke": {
+          "type": "expression",
+          "value": "`#00ff00`"
+        },
+        "strokeWidth": {
+          "type": "expression",
+          "value": "0"
+        },
+        "strokeDasharray": {
+          "type": "expression",
+          "value": "[0]"
+        },
+        "strokeDashoffset": {
+          "type": "expression",
+          "value": "0"
+        },
+        "opacity": {
+          "type": "expression",
+          "value": "1"
+        },
+        "rotateLine": {
+          "type": "expression",
+          "value": "0"
+        },
+        "rotateChar": {
+          "type": "expression",
+          "value": "0"
+        },
+        "lineSkewX": {
+          "type": "expression",
+          "value": "0"
+        },
+        "lineSkewY": {
+          "type": "expression",
+          "value": "0"
+        },
+        "uppercase": {
+          "type": "expression",
+          "value": "false"
+        },
+        "type": {
+          "type": "expression",
+          "value": "`box`"
+        },
+        "features": {
+          "type": "expression",
+          "value": "[]"
+        },
+        "textOnPathBaseline": {
+          "type": "expression",
+          "value": "`baseline`"
+        },
+        "textOnPathDelta": {
+          "type": "expression",
+          "value": "0"
+        },
+        "textOnPathInnerGlyphAnchor": {
+          "type": "expression",
+          "value": "`middle`"
+        },
+        "textOnPathOffset": {
+          "type": "expression",
+          "value": "[0, 0]"
+        }
+      },
+      "transform": {
+        "translateX": {
+          "type": "expression",
+          "value": "0"
+        },
+        "translateY": {
+          "type": "expression",
+          "value": "0"
+        },
+        "skewX": {
+          "type": "expression",
+          "value": "0"
+        },
+        "skewY": {
+          "type": "expression",
+          "value": "0"
+        },
+        "scaleX": {
+          "type": "expression",
+          "value": "1"
+        },
+        "scaleY": {
+          "type": "expression",
+          "value": "1"
+        },
+        "rotate": {
+          "type": "expression",
+          "value": "0"
+        }
+      },
+      "filter": {
+        "blur": {
+          "type": "expression",
+          "value": "null"
+        },
+        "grayscale": {
+          "type": "expression",
+          "value": "null"
+        },
+        "sepia": {
+          "type": "expression",
+          "value": "null"
+        },
+        "exposure": {
+          "type": "expression",
+          "value": "null"
+        },
+        "brightness": {
+          "type": "expression",
+          "value": "null"
+        },
+        "saturate": {
+          "type": "expression",
+          "value": "null"
+        },
+        "contrast": {
+          "type": "expression",
+          "value": "null"
+        },
+        "invert": {
+          "type": "expression",
+          "value": "null"
+        },
+        "gradientMap": {
+          "type": "expression",
+          "value": "null"
+        },
+        "hueRotate": {
+          "type": "expression",
+          "value": "null"
+        },
+        "opacity": {
+          "type": "expression",
+          "value": "null"
+        },
+        "dropShadow": {
+          "type": "expression",
+          "value": "null"
+        }
+      },
+      "iteration": null,
+      "bx-tracking-id": "G0424r6XpWfIVSCvwm4nC"
+    },
+    {
+      "name": "group",
+      "id": "group2",
+      "properties": {
+        "v-transform-origin": {
+          "type": "expression",
+          "value": "[532, 866]"
+        },
+        "v-show": {
+          "type": "expression",
+          "value": "true"
+        },
+        "invert": {
+          "type": "expression",
+          "value": "false"
+        },
+        "colorMasking": {
+          "type": "expression",
+          "value": "false"
+        }
+      },
+      "transform": {
+        "translateX": {
+          "type": "expression",
+          "value": "100"
+        },
+        "translateY": {
+          "type": "expression",
+          "value": "0"
+        },
+        "skewX": {
+          "type": "expression",
+          "value": "0"
+        },
+        "skewY": {
+          "type": "expression",
+          "value": "0"
+        },
+        "scaleX": {
+          "type": "expression",
+          "value": "1"
+        },
+        "scaleY": {
+          "type": "expression",
+          "value": "1"
+        },
+        "rotate": {
+          "type": "expression",
+          "value": "0"
+        }
+      },
+      "filter": {
+        "blur": {
+          "type": "expression",
+          "value": "null"
+        },
+        "grayscale": {
+          "type": "expression",
+          "value": "null"
+        },
+        "sepia": {
+          "type": "expression",
+          "value": "null"
+        },
+        "exposure": {
+          "type": "expression",
+          "value": "null"
+        },
+        "brightness": {
+          "type": "expression",
+          "value": "null"
+        },
+        "saturate": {
+          "type": "expression",
+          "value": "null"
+        },
+        "contrast": {
+          "type": "expression",
+          "value": "null"
+        },
+        "invert": {
+          "type": "expression",
+          "value": "null"
+        },
+        "gradientMap": {
+          "type": "expression",
+          "value": "null"
+        },
+        "hueRotate": {
+          "type": "expression",
+          "value": "null"
+        },
+        "opacity": {
+          "type": "expression",
+          "value": "null"
+        },
+        "dropShadow": {
+          "type": "expression",
+          "value": "null"
+        }
+      },
+      "iteration": null,
+      "slots": {
+        "default": [
+          {
+            "name": "text",
+            "id": "text2",
+            "properties": {
+              "v-transform-origin": {
+                "type": "expression",
+                "value": "[72, 724]"
+              },
+              "v-show": {
+                "type": "expression",
+                "value": "true"
+              },
+              "text": {
+                "type": "expression",
+                "value": "text2_text"
+              },
+              "richText": {
+                "type": "expression",
+                "value": "[{ text: `hello world`, format: {} }]"
+              },
+              "textMode": {
+                "type": "expression",
+                "value": "`plaintext`"
+              },
+              "autoLinebreaks": {
+                "type": "expression",
+                "value": "true"
+              },
+              "autoLinebreaksAllowBreakChars": {
+                "type": "expression",
+                "value": "false"
+              },
+              "bounding": {
+                "type": "expression",
+                "value": "`font`"
+              },
+              "x": {
+                "type": "expression",
+                "value": "72"
+              },
+              "y": {
+                "type": "expression",
+                "value": "724"
+              },
+              "pos": {
+                "type": "expression",
+                "value": "[0, 0]"
+              },
+              "width": {
+                "type": "expression",
+                "value": "920"
+              },
+              "height": {
+                "type": "expression",
+                "value": "284"
+              },
+              "fontSize": {
+                "type": "expression",
+                "value": "52"
+              },
+              "textAlign": {
+                "type": "expression",
+                "value": "0"
+              },
+              "fontWeight": {
+                "type": "expression",
+                "value": "400"
+              },
+              "fontFamily": {
+                "type": "expression",
+                "value": "`Inter`"
+              },
+              "fontStretch": {
+                "type": "expression",
+                "value": "`normal`"
+              },
+              "fontStyle": {
+                "type": "expression",
+                "value": "`normal`"
+              },
+              "lineHeight": {
+                "type": "expression",
+                "value": "1.1"
+              },
+              "letterSpacing": {
+                "type": "expression",
+                "value": "1"
+              },
+              "fill": {
+                "type": "expression",
+                "value": "`#000000`"
+              },
+              "stroke": {
+                "type": "expression",
+                "value": "`#00ff00`"
+              },
+              "strokeWidth": {
+                "type": "expression",
+                "value": "0"
+              },
+              "strokeDasharray": {
+                "type": "expression",
+                "value": "[0]"
+              },
+              "strokeDashoffset": {
+                "type": "expression",
+                "value": "0"
+              },
+              "opacity": {
+                "type": "expression",
+                "value": "1"
+              },
+              "rotateLine": {
+                "type": "expression",
+                "value": "0"
+              },
+              "rotateChar": {
+                "type": "expression",
+                "value": "0"
+              },
+              "lineSkewX": {
+                "type": "expression",
+                "value": "0"
+              },
+              "lineSkewY": {
+                "type": "expression",
+                "value": "0"
+              },
+              "uppercase": {
+                "type": "expression",
+                "value": "false"
+              },
+              "type": {
+                "type": "expression",
+                "value": "`box`"
+              },
+              "features": {
+                "type": "expression",
+                "value": "[]"
+              },
+              "textOnPathBaseline": {
+                "type": "expression",
+                "value": "`baseline`"
+              },
+              "textOnPathDelta": {
+                "type": "expression",
+                "value": "0"
+              },
+              "textOnPathInnerGlyphAnchor": {
+                "type": "expression",
+                "value": "`middle`"
+              },
+              "textOnPathOffset": {
+                "type": "expression",
+                "value": "[0, 0]"
+              }
+            },
+            "transform": {
+              "translateX": {
+                "type": "expression",
+                "value": "0"
+              },
+              "translateY": {
+                "type": "expression",
+                "value": "0"
+              },
+              "skewX": {
+                "type": "expression",
+                "value": "0"
+              },
+              "skewY": {
+                "type": "expression",
+                "value": "0"
+              },
+              "scaleX": {
+                "type": "expression",
+                "value": "1"
+              },
+              "scaleY": {
+                "type": "expression",
+                "value": "1"
+              },
+              "rotate": {
+                "type": "expression",
+                "value": "0"
+              }
+            },
+            "filter": {
+              "blur": {
+                "type": "expression",
+                "value": "null"
+              },
+              "grayscale": {
+                "type": "expression",
+                "value": "null"
+              },
+              "sepia": {
+                "type": "expression",
+                "value": "null"
+              },
+              "exposure": {
+                "type": "expression",
+                "value": "null"
+              },
+              "brightness": {
+                "type": "expression",
+                "value": "null"
+              },
+              "saturate": {
+                "type": "expression",
+                "value": "null"
+              },
+              "contrast": {
+                "type": "expression",
+                "value": "null"
+              },
+              "invert": {
+                "type": "expression",
+                "value": "null"
+              },
+              "gradientMap": {
+                "type": "expression",
+                "value": "null"
+              },
+              "hueRotate": {
+                "type": "expression",
+                "value": "null"
+              },
+              "opacity": {
+                "type": "expression",
+                "value": "null"
+              },
+              "dropShadow": {
+                "type": "expression",
+                "value": "null"
+              }
+            },
+            "iteration": null,
+            "bx-tracking-id": "NH1gUSxbLP1C30oXuU5xO"
+          },
+          {
+            "name": "rectangle",
+            "id": "rectangle1",
+            "properties": {
+              "v-transform-origin": {
+                "type": "expression",
+                "value": "[72, 724]"
+              },
+              "v-show": {
+                "type": "expression",
+                "value": "true"
+              },
+              "pos": {
+                "type": "expression",
+                "value": "[0, 0]"
+              },
+              "x": {
+                "type": "expression",
+                "value": "text2.lines[i].x"
+              },
+              "y": {
+                "type": "expression",
+                "value": "text2.lines[i].y"
+              },
+              "width": {
+                "type": "expression",
+                "value": "text2.lines[i].width"
+              },
+              "height": {
+                "type": "expression",
+                "value": "text2.lines[i].height"
+              },
+              "fill": {
+                "type": "expression",
+                "value": "`#5ED770FF`"
+              },
+              "stroke": {
+                "type": "expression",
+                "value": "`#ff0000`"
+              },
+              "strokeWidth": {
+                "type": "expression",
+                "value": "0"
+              },
+              "strokeDasharray": {
+                "type": "expression",
+                "value": "[0, 0]"
+              },
+              "strokeDashoffset": {
+                "type": "expression",
+                "value": "0"
+              },
+              "opacity": {
+                "type": "expression",
+                "value": "1"
+              },
+              "radius": {
+                "type": "expression",
+                "value": "[0, 0, 0, 0]"
+              }
+            },
+            "transform": {
+              "translateX": {
+                "type": "expression",
+                "value": "0"
+              },
+              "translateY": {
+                "type": "expression",
+                "value": "0"
+              },
+              "skewX": {
+                "type": "expression",
+                "value": "0"
+              },
+              "skewY": {
+                "type": "expression",
+                "value": "0"
+              },
+              "scaleX": {
+                "type": "expression",
+                "value": "1"
+              },
+              "scaleY": {
+                "type": "expression",
+                "value": "1"
+              },
+              "rotate": {
+                "type": "expression",
+                "value": "0"
+              }
+            },
+            "filter": {
+              "blur": {
+                "type": "expression",
+                "value": "null"
+              },
+              "grayscale": {
+                "type": "expression",
+                "value": "null"
+              },
+              "sepia": {
+                "type": "expression",
+                "value": "null"
+              },
+              "exposure": {
+                "type": "expression",
+                "value": "null"
+              },
+              "brightness": {
+                "type": "expression",
+                "value": "null"
+              },
+              "saturate": {
+                "type": "expression",
+                "value": "null"
+              },
+              "contrast": {
+                "type": "expression",
+                "value": "null"
+              },
+              "invert": {
+                "type": "expression",
+                "value": "null"
+              },
+              "gradientMap": {
+                "type": "expression",
+                "value": "null"
+              },
+              "hueRotate": {
+                "type": "expression",
+                "value": "null"
+              },
+              "opacity": {
+                "type": "expression",
+                "value": "null"
+              },
+              "dropShadow": {
+                "type": "expression",
+                "value": "null"
+              }
+            },
+            "iteration": {
+              "expression": "text2.lines.length",
+              "key": "i"
+            },
+            "bx-tracking-id": "13tLOcbPGOcI8VlHQOMcu"
+          }
+        ]
+      },
+      "bx-tracking-id": "BmezStTVm2waL1KaloXvP"
+    },
+    {
+      "name": "group",
+      "id": "group1",
+      "properties": {
+        "v-transform-origin": {
+          "type": "expression",
+          "value": "[535, 395.5]"
+        },
+        "v-show": {
+          "type": "expression",
+          "value": "true"
+        },
+        "invert": {
+          "type": "expression",
+          "value": "false"
+        },
+        "colorMasking": {
+          "type": "expression",
+          "value": "false"
+        }
+      },
+      "transform": {
+        "translateX": {
+          "type": "expression",
+          "value": "0"
+        },
+        "translateY": {
+          "type": "expression",
+          "value": "0"
+        },
+        "skewX": {
+          "type": "expression",
+          "value": "0"
+        },
+        "skewY": {
+          "type": "expression",
+          "value": "0"
+        },
+        "scaleX": {
+          "type": "expression",
+          "value": "1"
+        },
+        "scaleY": {
+          "type": "expression",
+          "value": "1"
+        },
+        "rotate": {
+          "type": "expression",
+          "value": "60"
+        }
+      },
+      "filter": {
+        "blur": {
+          "type": "expression",
+          "value": "null"
+        },
+        "grayscale": {
+          "type": "expression",
+          "value": "null"
+        },
+        "sepia": {
+          "type": "expression",
+          "value": "null"
+        },
+        "exposure": {
+          "type": "expression",
+          "value": "null"
+        },
+        "brightness": {
+          "type": "expression",
+          "value": "null"
+        },
+        "saturate": {
+          "type": "expression",
+          "value": "null"
+        },
+        "contrast": {
+          "type": "expression",
+          "value": "null"
+        },
+        "invert": {
+          "type": "expression",
+          "value": "null"
+        },
+        "gradientMap": {
+          "type": "expression",
+          "value": "null"
+        },
+        "hueRotate": {
+          "type": "expression",
+          "value": "null"
+        },
+        "opacity": {
+          "type": "expression",
+          "value": "null"
+        },
+        "dropShadow": {
+          "type": "expression",
+          "value": "null"
+        }
+      },
+      "iteration": null,
+      "slots": {
+        "default": [
+          {
+            "name": "group",
+            "id": "group3",
+            "properties": {
+              "v-transform-origin": {
+                "type": "expression",
+                "value": "[263, 258]"
+              },
+              "v-show": {
+                "type": "expression",
+                "value": "true"
+              },
+              "invert": {
+                "type": "expression",
+                "value": "false"
+              },
+              "colorMasking": {
+                "type": "expression",
+                "value": "false"
+              }
+            },
+            "transform": {
+              "translateX": {
+                "type": "expression",
+                "value": "0"
+              },
+              "translateY": {
+                "type": "expression",
+                "value": "0"
+              },
+              "skewX": {
+                "type": "expression",
+                "value": "0"
+              },
+              "skewY": {
+                "type": "expression",
+                "value": "0"
+              },
+              "scaleX": {
+                "type": "expression",
+                "value": "1"
+              },
+              "scaleY": {
+                "type": "expression",
+                "value": "1"
+              },
+              "rotate": {
+                "type": "expression",
+                "value": "0"
+              }
+            },
+            "filter": {
+              "blur": {
+                "type": "expression",
+                "value": "null"
+              },
+              "grayscale": {
+                "type": "expression",
+                "value": "null"
+              },
+              "sepia": {
+                "type": "expression",
+                "value": "null"
+              },
+              "exposure": {
+                "type": "expression",
+                "value": "null"
+              },
+              "brightness": {
+                "type": "expression",
+                "value": "null"
+              },
+              "saturate": {
+                "type": "expression",
+                "value": "null"
+              },
+              "contrast": {
+                "type": "expression",
+                "value": "null"
+              },
+              "invert": {
+                "type": "expression",
+                "value": "null"
+              },
+              "gradientMap": {
+                "type": "expression",
+                "value": "null"
+              },
+              "hueRotate": {
+                "type": "expression",
+                "value": "null"
+              },
+              "opacity": {
+                "type": "expression",
+                "value": "null"
+              },
+              "dropShadow": {
+                "type": "expression",
+                "value": "null"
+              }
+            },
+            "iteration": null,
+            "slots": {
+              "default": [
+                {
+                  "name": "text",
+                  "id": "text1",
+                  "properties": {
+                    "v-transform-origin": {
+                      "type": "expression",
+                      "value": "[263, 258]"
+                    },
+                    "v-show": {
+                      "type": "expression",
+                      "value": "true"
+                    },
+                    "text": {
+                      "type": "expression",
+                      "value": "`Lorem ipsum dolor`"
+                    },
+                    "richText": {
+                      "type": "expression",
+                      "value": "[{ text: `hello world`, format: {} }]"
+                    },
+                    "textMode": {
+                      "type": "expression",
+                      "value": "`plaintext`"
+                    },
+                    "autoLinebreaks": {
+                      "type": "expression",
+                      "value": "true"
+                    },
+                    "autoLinebreaksAllowBreakChars": {
+                      "type": "expression",
+                      "value": "false"
+                    },
+                    "bounding": {
+                      "type": "expression",
+                      "value": "`font`"
+                    },
+                    "x": {
+                      "type": "expression",
+                      "value": "263"
+                    },
+                    "y": {
+                      "type": "expression",
+                      "value": "258"
+                    },
+                    "pos": {
+                      "type": "expression",
+                      "value": "[0, 0]"
+                    },
+                    "width": {
+                      "type": "expression",
+                      "value": "601"
+                    },
+                    "height": {
+                      "type": "expression",
+                      "value": "258"
+                    },
+                    "fontSize": {
+                      "type": "expression",
+                      "value": "52"
+                    },
+                    "textAlign": {
+                      "type": "expression",
+                      "value": "0"
+                    },
+                    "fontWeight": {
+                      "type": "expression",
+                      "value": "400"
+                    },
+                    "fontFamily": {
+                      "type": "expression",
+                      "value": "`Poppins`"
+                    },
+                    "fontStretch": {
+                      "type": "expression",
+                      "value": "`normal`"
+                    },
+                    "fontStyle": {
+                      "type": "expression",
+                      "value": "`normal`"
+                    },
+                    "lineHeight": {
+                      "type": "expression",
+                      "value": "1.1"
+                    },
+                    "letterSpacing": {
+                      "type": "expression",
+                      "value": "1"
+                    },
+                    "fill": {
+                      "type": "expression",
+                      "value": "`#FF0E0EFF`"
+                    },
+                    "stroke": {
+                      "type": "expression",
+                      "value": "`#00ff00`"
+                    },
+                    "strokeWidth": {
+                      "type": "expression",
+                      "value": "0"
+                    },
+                    "strokeDasharray": {
+                      "type": "expression",
+                      "value": "[0, 0]"
+                    },
+                    "strokeDashoffset": {
+                      "type": "expression",
+                      "value": "0"
+                    },
+                    "opacity": {
+                      "type": "expression",
+                      "value": "1"
+                    },
+                    "rotateLine": {
+                      "type": "expression",
+                      "value": "0"
+                    },
+                    "rotateChar": {
+                      "type": "expression",
+                      "value": "0"
+                    },
+                    "lineSkewX": {
+                      "type": "expression",
+                      "value": "0"
+                    },
+                    "lineSkewY": {
+                      "type": "expression",
+                      "value": "0"
+                    },
+                    "uppercase": {
+                      "type": "expression",
+                      "value": "false"
+                    },
+                    "type": {
+                      "type": "expression",
+                      "value": "`box`"
+                    },
+                    "features": {
+                      "type": "expression",
+                      "value": "[]"
+                    },
+                    "textOnPathBaseline": {
+                      "type": "expression",
+                      "value": "`baseline`"
+                    },
+                    "textOnPathDelta": {
+                      "type": "expression",
+                      "value": "0"
+                    },
+                    "textOnPathInnerGlyphAnchor": {
+                      "type": "expression",
+                      "value": "`middle`"
+                    },
+                    "textOnPathOffset": {
+                      "type": "expression",
+                      "value": "[0, 0]"
+                    }
+                  },
+                  "transform": {
+                    "translateX": {
+                      "type": "expression",
+                      "value": "0"
+                    },
+                    "translateY": {
+                      "type": "expression",
+                      "value": "0"
+                    },
+                    "skewX": {
+                      "type": "expression",
+                      "value": "0"
+                    },
+                    "skewY": {
+                      "type": "expression",
+                      "value": "0"
+                    },
+                    "scaleX": {
+                      "type": "expression",
+                      "value": "1"
+                    },
+                    "scaleY": {
+                      "type": "expression",
+                      "value": "1"
+                    },
+                    "rotate": {
+                      "type": "expression",
+                      "value": "0"
+                    }
+                  },
+                  "filter": {
+                    "blur": {
+                      "type": "expression",
+                      "value": "null"
+                    },
+                    "grayscale": {
+                      "type": "expression",
+                      "value": "null"
+                    },
+                    "sepia": {
+                      "type": "expression",
+                      "value": "null"
+                    },
+                    "exposure": {
+                      "type": "expression",
+                      "value": "null"
+                    },
+                    "brightness": {
+                      "type": "expression",
+                      "value": "null"
+                    },
+                    "saturate": {
+                      "type": "expression",
+                      "value": "null"
+                    },
+                    "contrast": {
+                      "type": "expression",
+                      "value": "null"
+                    },
+                    "invert": {
+                      "type": "expression",
+                      "value": "null"
+                    },
+                    "gradientMap": {
+                      "type": "expression",
+                      "value": "null"
+                    },
+                    "hueRotate": {
+                      "type": "expression",
+                      "value": "null"
+                    },
+                    "opacity": {
+                      "type": "expression",
+                      "value": "null"
+                    },
+                    "dropShadow": {
+                      "type": "expression",
+                      "value": "null"
+                    }
+                  },
+                  "iteration": null,
+                  "bx-tracking-id": "yJWnARXJvpV9EhsUFe8zC"
+                }
+              ]
+            },
+            "bx-tracking-id": "HMh8Kq42JvZJTuM8E-Brs"
+          },
+          {
+            "name": "image",
+            "id": "image1",
+            "properties": {
+              "v-transform-origin": {
+                "type": "expression",
+                "value": "[159, 83]"
+              },
+              "v-show": {
+                "type": "expression",
+                "value": "true"
+              },
+              "x": {
+                "type": "expression",
+                "value": "159"
+              },
+              "y": {
+                "type": "expression",
+                "value": "83"
+              },
+              "pos": {
+                "type": "expression",
+                "value": "[0, 0]"
+              },
+              "width": {
+                "type": "expression",
+                "value": "752"
+              },
+              "height": {
+                "type": "expression",
+                "value": "625"
+              },
+              "image": {
+                "type": "expression",
+                "value": "({ src: `https://blog.bluepic.io/content/images/2024/04/Bluepic-STUDIO-is-the-next-generation-of-graphic-template-software-1.jpg`, scale: 1, innerPos: [0, 0], innerRotate: 0 })"
+              },
+              "mode": {
+                "type": "expression",
+                "value": "`cover`"
+              },
+              "radius": {
+                "type": "expression",
+                "value": "[0, 0, 0, 0]"
+              },
+              "stroke": {
+                "type": "expression",
+                "value": "`#ffffff`"
+              },
+              "strokeWidth": {
+                "type": "expression",
+                "value": "0"
+              },
+              "strokeDasharray": {
+                "type": "expression",
+                "value": "[0, 0]"
+              },
+              "strokeDashoffset": {
+                "type": "expression",
+                "value": "0"
+              },
+              "opacity": {
+                "type": "expression",
+                "value": "1"
+              },
+              "fill": {
+                "type": "expression",
+                "value": "`none`"
+              }
+            },
+            "transform": {
+              "translateX": {
+                "type": "expression",
+                "value": "0"
+              },
+              "translateY": {
+                "type": "expression",
+                "value": "0"
+              },
+              "skewX": {
+                "type": "expression",
+                "value": "0"
+              },
+              "skewY": {
+                "type": "expression",
+                "value": "0"
+              },
+              "scaleX": {
+                "type": "expression",
+                "value": "1"
+              },
+              "scaleY": {
+                "type": "expression",
+                "value": "1"
+              },
+              "rotate": {
+                "type": "expression",
+                "value": "0"
+              }
+            },
+            "filter": {
+              "blur": {
+                "type": "expression",
+                "value": "null"
+              },
+              "grayscale": {
+                "type": "expression",
+                "value": "null"
+              },
+              "sepia": {
+                "type": "expression",
+                "value": "null"
+              },
+              "exposure": {
+                "type": "expression",
+                "value": "null"
+              },
+              "brightness": {
+                "type": "expression",
+                "value": "null"
+              },
+              "saturate": {
+                "type": "expression",
+                "value": "null"
+              },
+              "contrast": {
+                "type": "expression",
+                "value": "null"
+              },
+              "invert": {
+                "type": "expression",
+                "value": "null"
+              },
+              "gradientMap": {
+                "type": "expression",
+                "value": "null"
+              },
+              "hueRotate": {
+                "type": "expression",
+                "value": "null"
+              },
+              "opacity": {
+                "type": "expression",
+                "value": "null"
+              },
+              "dropShadow": {
+                "type": "expression",
+                "value": "null"
+              }
+            },
+            "iteration": null,
+            "bx-tracking-id": "BDtSiQj7MWzsOajnSKYfC"
+          }
+        ]
+      },
+      "bx-tracking-id": "Z9sMT3d7JAg7UkNxMztZW"
+    }
+  ],
+  "bindings": {
+    "TIME": 0,
+    "text2_text": "this text\nhas more than\none line and\na \ncool bg",
+    "Text": "hello world"
+  },
+  "computedBindings": {},
+  "studioVersion": "0.0.0"
+}
