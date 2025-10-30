@@ -32,12 +32,10 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { SimpleElement } from 'bbox-skeleton';
 import { SimpleElementWithBluepicMeta } from '../controllers/bluepicWYSIWYG';
-import { Matrix } from 'transformation-matrix';
 import { round } from 'lodash';
 
-const props = defineProps<{
+defineProps<{
   elements: SimpleElementWithBluepicMeta[];
   selected: string;
   level: number;

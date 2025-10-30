@@ -36,7 +36,7 @@
 <script setup lang="ts">
 import { type ElementBBox, type ElementChangeRecord, applySkeletonInPlace, getElementLocalBBox, getElementSkeleton, getElementWorldMatrix, getElementWorldSkeleton, Skeleton } from 'bbox-skeleton';
 import { SimpleElementWithBluepicMeta } from '../controllers/bluepicWYSIWYG';
-import { computed, onUnmounted, ref, watch, watchEffect } from 'vue';
+import { computed, onUnmounted, ref, watch } from 'vue';
 import { cornerHandles, edgeHandles, extractRotationRadians, Handle, useRectDrag } from '../controllers/rectDrag';
 import { watchAsyncViaAnimationFrame } from '../util/debounce';
 import DraggablePoint from './DraggablePoint.vue';
@@ -97,8 +97,8 @@ const stopWatch = watchAsyncViaAnimationFrame(latestMouseClientPos, (newPos: { x
 onUnmounted(() => {
   stopWatch();
 });
-function handleGlobalMouseup(event: MouseEvent) {
-  handleMouseup(event);
+function handleGlobalMouseup() {
+  handleMouseup();
 }
 window.addEventListener('mouseup', handleGlobalMouseup);
 window.addEventListener('mousemove', handleGlobalMousemove);

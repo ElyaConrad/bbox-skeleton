@@ -64,7 +64,7 @@
                 :canvas-height="serial.height"
                 :compose-point="composePoint"
                 :clientCoordinatesToCanvasCoordinates="clientCoordinatesToCanvasCoordinates"
-                @elements:update="handleElementsChangeRecords2"
+                @elements:update="handleElementsChangeRecords"
               />
               <g>
                 <circle v-for="p in testPoints" :cx="composePointAbs(p.x, p.y, composePoint)[0]" :cy="composePointAbs(p.x, p.y, composePoint)[1]" r="5" class="test-point" />
@@ -81,7 +81,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, nextTick, onUnmounted, ref } from 'vue';
+import { computed, onUnmounted, ref } from 'vue';
 // @ts-expect-error no types
 import { Zoompinch } from 'zoompinch';
 import 'zoompinch/style.css';
@@ -158,7 +158,6 @@ function setRelOrigin() {
 
 (window as any).adjustLocalBBoxForNewTransformOrigin = (el: SimpleElementWithBluepicMeta, transformOrigin: PointObjectNotation) => {
   const { changes, transformOriginAbs } = adjustLocalBBoxForNewTransformOrigin(el, transformOrigin);
-  // el.transform = newMatrix;
   el.transformOrigin = transformOriginAbs;
   el.meta.bluepicElement.properties['v-transform-origin'] = {
     type: 'expression',
@@ -225,8 +224,6 @@ const offset = {
 const testPoints = ref<PointObjectNotation[]>([]);
 const testBBoxes = ref<ElementBBox[]>([]);
 
-const testSkeletons = ref<[PointObjectNotation, PointObjectNotation, PointObjectNotation, PointObjectNotation][]>([]);
-
 const handleDragGestureStart = () => {
   console.log('Drag gesture started');
 };
@@ -257,15 +254,13 @@ const elementScopeInformation = ref<ElementScopeInformation>({});
 const liveGlobalScope = ref<{ [k: string]: unknown }>({});
 const fullTreeContext = computed(() => serial.value.context);
 
-function handleElementsChangeRecords2(changeRecords: ElementChangeRecord<SimpleElementWithBluepicMeta['meta']>[]) {
-  // testSkeletons.value = changeRecords.map((rec) => rec.newSkeleton);
+function handleElementsChangeRecords(changeRecords: ElementChangeRecord<SimpleElementWithBluepicMeta['meta']>[]) {
 
   testPoints.value = [];
   testBBoxes.value = [];
 
   const transformOriginsOld = new Map<SimpleElementWithBluepicMeta, PointObjectNotation>();
   const bboxesOld = new Map<SimpleElementWithBluepicMeta, ElementBBox>();
-  //const oldTransformOriginsRel = new Map<SimpleElementWithBluepicMeta, [number, number]>();
 
   for (const element of collectAllElements(allSimpleElements.value)) {
     const bluepicElement = element.meta.bluepicElement;
@@ -408,16 +403,6 @@ function composePointAbs(x: number, y: number, compose: (x: number, y: number) =
   return compose(x / canvasWidth, y / canvasHeight);
 }
 
-function composeBBox(bbox: ElementBBox, compose: (x: number, y: number) => [number, number]) {
-  const topLeft = composePointAbs(bbox.x, bbox.y, compose);
-  const bottomRight = composePointAbs(bbox.x + bbox.width, bbox.y + bbox.height, compose);
-  return {
-    x: topLeft[0],
-    y: topLeft[1],
-    width: bottomRight[0] - topLeft[0],
-    height: bottomRight[1] - topLeft[1],
-  };
-}
 
 const allElementsOptions = computed(() => {
   return allSimpleElements.value.map((el) => {

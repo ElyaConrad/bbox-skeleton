@@ -66,7 +66,7 @@ export function useRectDrag(elementWorldSkeleton: Ref<Skeleton>,elementWorldTran
     event.preventDefault();
     event.stopPropagation();
   };
-  const handleMouseup = (event: MouseEvent) => {
+  const handleMouseup = () => {
     dragStartPos = null;
     activeHandle = null;
     skeletonAtDragStart = null;
