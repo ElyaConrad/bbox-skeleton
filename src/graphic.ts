@@ -1,16 +1,13 @@
 import { compose, inverse, Matrix, skew, translate } from 'transformation-matrix';
 
-export type Vec2 = {
-    x: number;
-    y: number;
-}
+
 export type ElementBBox = {
   x: number;
   y: number;
   width: number;
   height: number;
 };
-export type Skeleton = [Vec2, Vec2, Vec2, Vec2];
+export type Skeleton = [PointObjectNotation, PointObjectNotation, PointObjectNotation, PointObjectNotation];
 
 
 // Helper function to create a skew matrix from degrees
@@ -25,7 +22,7 @@ export function radiansToDegrees(rad: number): number {
 }
 
 // Bake a given origin into a transformation matrix
-export function bakeOriginIntoMatrix(coreMatrix: Matrix, origin: Vec2) {
+export function bakeOriginIntoMatrix(coreMatrix: Matrix, origin: PointObjectNotation) {
   return compose(
     translate(origin.x, origin.y),
     coreMatrix,
@@ -34,7 +31,7 @@ export function bakeOriginIntoMatrix(coreMatrix: Matrix, origin: Vec2) {
 }
 
 // Calculate the compensation delta to be applied to the geometry when changing the transform origin via d = (M_kern^(-1) - I) · (o_alt - o_neu)
-export function computeOriginCompensationDelta(coreMatrix: Matrix, oldOrigin: Vec2, newOrigin: Vec2): Vec2 {
+export function computeOriginCompensationDelta(coreMatrix: Matrix, oldOrigin: PointObjectNotation, newOrigin: PointObjectNotation): PointObjectNotation {
   const invCore = inverse(coreMatrix);
   const originDelta = subtractVec(oldOrigin, newOrigin);
 
@@ -44,14 +41,14 @@ export function computeOriginCompensationDelta(coreMatrix: Matrix, oldOrigin: Ve
 }
 
 // Applies only the linear part of a transformation matrix to a vector
-export function applyLinearPartOfMatrix(m: Matrix, v: Vec2): Vec2 {
+export function applyLinearPartOfMatrix(m: Matrix, v: PointObjectNotation): PointObjectNotation {
   return {
     x: m.a * v.x + m.c * v.y,
     y: m.b * v.x + m.d * v.y,
   };
 }
 // Subtract two vectors
-export function subtractVec(a: Vec2, b: Vec2): Vec2 {
+export function subtractVec(a: PointObjectNotation, b: PointObjectNotation): PointObjectNotation {
   return { x: a.x - b.x, y: a.y - b.y };
 }
 
@@ -73,7 +70,7 @@ export const composeBBox = (canvasWidth: number, canvasHeight: number, bbox: Ele
   return { x, y, width: xMax - x, height: yMax - y };
 };
 
-export function pathifySkeleton(canvasWidth: number, canvasHeight: number, points: Vec2[], compose: (x: number, y: number) => [number, number]) {
+export function pathifySkeleton(canvasWidth: number, canvasHeight: number, points: PointObjectNotation[], compose: (x: number, y: number) => [number, number]) {
   if (points.length === 0) return '';
   const composePointAbs = (x: number, y: number) => {
     const xRel = x / canvasWidth;

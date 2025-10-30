@@ -47,14 +47,14 @@ export function findElement<Meta extends SimpleElementMeta>(globalSlot: SimpleEl
 }
 
 // Find the parent group of a given element in the global slot
-function getElementParent<Meta extends SimpleElementMeta>(globalSlot: SimpleElement<Meta>[], element: SimpleElement<Meta>) {
+export function getElementParent<Meta extends SimpleElementMeta>(globalSlot: SimpleElement<Meta>[], element: SimpleElement<Meta>) {
   return findElement(globalSlot, (currElement) => {
     return currElement.type === 'group' && currElement.children.includes(element);
   }) as SimpleElementGroup<Meta> | null;
 }
 
 // Get an array of elements representing the ancestry from the given element up to the root in the global slot
-function getElementAncestry<Meta extends SimpleElementMeta>(globalSlot: SimpleElement<Meta>[], element: SimpleElement<Meta>): SimpleElement<Meta>[] {
+export function getElementAncestry<Meta extends SimpleElementMeta>(globalSlot: SimpleElement<Meta>[], element: SimpleElement<Meta>): SimpleElement<Meta>[] {
   const parentElement = getElementParent(globalSlot, element);
   return [element, ...(parentElement ? getElementAncestry(globalSlot, parentElement) : [])];
 }
@@ -139,12 +139,7 @@ export function applySkeletonInPlace<Meta extends SimpleElementMeta>(el: SimpleE
   const inverseMatrix = inverse(skeletonMatrix);
   const newSkeletonInLocalCoords = newSkeleton.map((pt) => applyToPoint(inverseMatrix, pt)) as Skeleton;
 
-  const newSkeletonAsLocalBBox = {
-    x: Math.min(newSkeletonInLocalCoords[0].x, newSkeletonInLocalCoords[3].x),
-    y: Math.min(newSkeletonInLocalCoords[0].y, newSkeletonInLocalCoords[1].y),
-    width: Math.abs(newSkeletonInLocalCoords[1].x - newSkeletonInLocalCoords[0].x),
-    height: Math.abs(newSkeletonInLocalCoords[3].y - newSkeletonInLocalCoords[0].y),
-  };
+  const newSkeletonAsLocalBBox = calcBBoxFromSkeleton(newSkeletonInLocalCoords);
   if (el.type === 'group') {
     const oldLocalBBox = getElementLocalBBox(el);
     const newChildSkeletons = el.children
