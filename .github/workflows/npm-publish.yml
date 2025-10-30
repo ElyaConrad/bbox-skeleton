@@ -42,7 +42,7 @@ jobs:
       - name: Install dependencies for playground
         run: npm install
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN_INSTALL}}
         working-directory: playground
       - name: Install latest bbox-skeleton
         run: npm install bbox-skeleton@latest
