@@ -5,6 +5,10 @@
 [![npm version](https://img.shields.io/npm/v/bbox-skeleton.svg)](https://www.npmjs.com/package/bbox-skeleton)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+## Playground
+
+[Playground](https://bbox-skeleton-demo.pages.dev)
+
 ## What Problem Does This Solve?
 
 When building WYSIWYG graphic editors, you typically face a fundamental challenge: **How do you allow users to resize and move elements visually while maintaining their transformation properties?**
