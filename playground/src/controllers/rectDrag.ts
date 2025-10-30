@@ -19,7 +19,7 @@ export function extractRotationRadians({ a, b, c, d }: Matrix): number {
 
 
 
-export function useRectDrag(elementWorldSkeleton: Ref<Skeleton>,elementWorldTransformMatrix: Ref<Matrix>, callback: (newSkeleton: Skeleton) => void) {
+export function useRectDrag(elementWorldSkeleton: Ref<Skeleton>,elementWorldTransformMatrix: Ref<Matrix>, enforceAspectRatio: boolean, callback: (newSkeleton: Skeleton) => void) {
   const testPoints = ref<PointObjectNotation[]>([]);
 
   let dragStartPos: PointObjectNotation | null = null;
@@ -48,7 +48,7 @@ export function useRectDrag(elementWorldSkeleton: Ref<Skeleton>,elementWorldTran
       if (cornerHandles.includes(activeHandle as CornerHandle)) {
         const handleIndex = cornerHandles.indexOf(activeHandle as CornerHandle);
 
-        const { testPoints: newTestPoints, skeleton: newSkeleton } = projectSkeletonFromCorner(skeletonAtDragStart, elementWorldTransformMatrix.value, handleIndex, handlePos, event.shiftKey ? aspectRatioOnDragStart : null);
+        const { testPoints: newTestPoints, skeleton: newSkeleton } = projectSkeletonFromCorner(skeletonAtDragStart, elementWorldTransformMatrix.value, handleIndex, handlePos, (event.shiftKey || enforceAspectRatio) ? aspectRatioOnDragStart : null);
         testPoints.value = newTestPoints;
         callback(newSkeleton);
 
@@ -57,7 +57,7 @@ export function useRectDrag(elementWorldSkeleton: Ref<Skeleton>,elementWorldTran
         const handleIndex = edgeHandles.indexOf(activeHandle as EdgeHandle);
 
 
-        const { testPoints: newTestPoints, skeleton: newSkeleton } = projectSkeletonFromEdge(skeletonAtDragStart, elementWorldTransformMatrix.value, handleIndex, handlePos, event.shiftKey ? aspectRatioOnDragStart : null);
+        const { testPoints: newTestPoints, skeleton: newSkeleton } = projectSkeletonFromEdge(skeletonAtDragStart, elementWorldTransformMatrix.value, handleIndex, handlePos, (event.shiftKey || enforceAspectRatio) ? aspectRatioOnDragStart : null);
         testPoints.value = newTestPoints;
         callback(newSkeleton);
        

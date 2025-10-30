@@ -72,7 +72,7 @@ const worldRotationRadians = computed(() => {
 
 const newWorldSkeleton = ref<Skeleton>();
 
-const { handleMousedown, handleMousemove, handleMouseup } = useRectDrag(worldSkeleton, worldTransformationMatrix, (freshSkeleton) => {
+const { handleMousedown, handleMousemove, handleMouseup } = useRectDrag(worldSkeleton, worldTransformationMatrix, props.element.type === 'group', (freshSkeleton) => {
   newWorldSkeleton.value = freshSkeleton;
 });
 

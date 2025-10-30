@@ -287,46 +287,6 @@ function handleElementsChangeRecords(changeRecords: ElementChangeRecord<SimpleEl
 
   const adjustedTransformOrigins = new Map<SimpleElementWithBluepicMeta, PointObjectNotation>();
 
-  // Preserve relative transform origins while adjusting bboxes and transforms
-  // for (const element of collectAllElements(allSimpleElements.value)) {
-  //   // Get old transform origin and bbox
-  //   const oldTransformOriginAbs = transformOriginsOld.get(element);
-  //   const oldBBox = bboxesOld.get(element);
-  //   if (!oldTransformOriginAbs || !oldBBox) continue;
-
-  //   // Get the relative old transform origin within the old bbox (from TL corner)
-  //   const oldTransformOriginRel: [number, number] = [
-  //     round((oldTransformOriginAbs.x - oldBBox.x) / oldBBox.width, 8),
-  //     round((oldTransformOriginAbs.y - oldBBox.y) / oldBBox.height, 8)
-  //   ];
-
-  //   const currLocalBBox = getElementLocalBBox(element);
-  //   const currTransformOriginRel: [number, number] = [
-  //     round((element.transformOrigin.x - currLocalBBox.x) / currLocalBBox.width, 8),
-  //     round((element.transformOrigin.y - currLocalBBox.y) / currLocalBBox.height, 8),
-  //   ];
-  //   // No adjustment needed if relative transform origin is already correct
-  //   if (currTransformOriginRel[0] === oldTransformOriginRel[0] && currTransformOriginRel[1] === oldTransformOriginRel[1]) {
-  //     continue;
-  //   }
-
-  //   // The new matrix is simply the old core matrix adjusted for the new transform origin
-  //   // The changes are all adjusted element local bboxes flattened
-  //   const { changes, transformOriginAbs } = adjustLocalBBoxForNewTransformOriginRelative(element, oldTransformOriginRel);
-
-  //   // Just loop trough the flattened changes and apply the new local bboxes to our virtual elements
-  //   for (const { el, newLocalBBox } of changes) {
-  //     el.x = newLocalBBox.x;
-  //     el.y = newLocalBBox.y;
-  //     el.width = newLocalBBox.width;
-  //     el.height = newLocalBBox.height;
-  //   }
-  //   // Finally set the element's new transform origin
-  //   element.transformOrigin = transformOriginAbs;
-  //   // The original bluepic element's transform origin is not adjusted here but we keep track of the new absolute transform origin
-  //   adjustedTransformOrigins.set(element, transformOriginAbs);
-  // }
-
   for (const element of Array.from(changedElements)) {
     const bluepicElement = element.meta.bluepicElement;
     const localBBox = getElementLocalBBox(element);
