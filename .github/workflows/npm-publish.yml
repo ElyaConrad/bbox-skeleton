@@ -40,7 +40,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Inject .npmrc
-        run: echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN_INSTALL}}" > ~/.npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN_INSTALL}}" > ~/playground/.npmrc
       - name: Install dependencies for playground
         run: npm install
         working-directory: playground
@@ -48,7 +48,7 @@ jobs:
         run: npm install bbox-skeleton@latest
         working-directory: playground
       - name: Remove .npmrc
-        run: rm ~/.npmrc
+        run: rm ~/playground/.npmrc
       - name: test installed version
         run: cat package.json | grep -e '"bbox-skeleton":'
         working-directory: playground
