@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@bluepic/core": "^0.1.231",
-    "@bluepic/types": "^0.1.623",
+    "@bluepic/types": "^0.1.632",
     "bbox-skeleton": "^0.0.3",
     "lodash": "^4.17.21",
     "nanoid": "^5.1.6",
