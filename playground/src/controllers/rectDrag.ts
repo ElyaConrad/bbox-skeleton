@@ -29,7 +29,7 @@ export function useRectDrag(elementWorldSkeleton: Ref<Skeleton>,elementWorldTran
   const handleMousedown = (
     x: number,
     y: number,
-    event: MouseEvent,
+    event: MouseEvent | TouchEvent,
     handle: Handle,
   ) => {
     dragStartPos = { x, y };
@@ -41,7 +41,7 @@ export function useRectDrag(elementWorldSkeleton: Ref<Skeleton>,elementWorldTran
     event.preventDefault();
     event.stopPropagation();
   };
-  const handleMousemove = (x: number, y: number, event: MouseEvent) => {
+  const handleMousemove = (x: number, y: number, event: MouseEvent | TouchEvent) => {
     if (dragStartPos && activeHandle && skeletonAtDragStart) {
       const handlePos = { x, y };
 

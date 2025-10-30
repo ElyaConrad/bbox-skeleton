@@ -13,6 +13,7 @@
         :size="10"
         :angle="worldRotationRadians"
         @mousedown="handlePointMousedown($event, cornerHandles[index])"
+        @touchstart="handlePointTouchstart($event, cornerHandles[index])"
       />
       <draggable-point
         v-for="(point, index) in worldSkeletonCenterPointsOfEdges"
@@ -22,6 +23,7 @@
         :size="10"
         :angle="worldRotationRadians"
         @mousedown="handlePointMousedown($event, edgeHandles[index])"
+        @touchstart="handlePointTouchstart($event, edgeHandles[index])"
       />
     </g>
     <circle
@@ -81,7 +83,7 @@ function handlePointMousedown(event: MouseEvent, handle: Handle) {
   const [canvasX, canvasY] = props.clientCoordinatesToCanvasCoordinates(event.clientX, event.clientY);
   handleMousedown(canvasX, canvasY, event, handle);
 }
-let currentMousemoveEvent: MouseEvent | null = null;
+let currentMousemoveEvent: MouseEvent | TouchEvent | null = null;
 const latestMouseClientPos = ref<{ x: number; y: number } | null>(null);
 function handleGlobalMousemove(event: MouseEvent) {
   const [canvasX, canvasY] = props.clientCoordinatesToCanvasCoordinates(event.clientX, event.clientY);
@@ -97,15 +99,42 @@ const stopWatch = watchAsyncViaAnimationFrame(latestMouseClientPos, (newPos: { x
 onUnmounted(() => {
   stopWatch();
 });
+
 function handleGlobalMouseup() {
   handleMouseup();
 }
 window.addEventListener('mouseup', handleGlobalMouseup);
 window.addEventListener('mousemove', handleGlobalMousemove);
-
 onUnmounted(() => {
   window.removeEventListener('mouseup', handleGlobalMouseup);
   window.removeEventListener('mousemove', handleGlobalMousemove);
+});
+
+
+
+function handlePointTouchstart(event: TouchEvent, handle: Handle) {
+  if (!worldSkeleton.value) return;
+  if (event.touches.length === 0) return;
+  const touch = event.touches[0];
+  const [canvasX, canvasY] = props.clientCoordinatesToCanvasCoordinates(touch.clientX, touch.clientY);
+  handleMousedown(canvasX, canvasY, event, handle);
+}
+
+function handleGlobalTouchup () {
+  handleMouseup();
+}
+function handleGlobalTouchmove (event: TouchEvent) {
+  if (event.touches.length === 0) return;
+  const touch = event.touches[0];
+  const [canvasX, canvasY] = props.clientCoordinatesToCanvasCoordinates(touch.clientX, touch.clientY);
+  latestMouseClientPos.value = { x: canvasX, y: canvasY };
+  currentMousemoveEvent = event;
+}
+window.addEventListener('touchend', handleGlobalTouchup);
+window.addEventListener('touchmove', handleGlobalTouchmove);
+onUnmounted(() => {
+  window.removeEventListener('touchend', handleGlobalTouchup);
+  window.removeEventListener('touchmove', handleGlobalTouchmove);
 });
 
 function updateSkeletonReactively() {

@@ -390,6 +390,11 @@ const allElementsOptions = computed(() => {
     align-items: center;
     justify-content: space-between;
     padding: 20px;
+    @media screen and (max-width: 600px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
     .set-origin-wrapper {
       display: flex;
       align-items: center;
@@ -410,6 +415,9 @@ const allElementsOptions = computed(() => {
       height: 100%;
       overflow: auto;
       overflow: scroll;
+      @media screen and (max-width: 600px) {
+        display: none;
+      }
     }
     .zoompinch {
       border: 1px solid #000;
