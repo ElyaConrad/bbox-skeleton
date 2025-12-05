@@ -116,7 +116,7 @@ export function getElementWorldSkeleton(globalSlot: SimpleElement[], element: Si
   return elementBaseSkeleton.map((pt) => applyToPoint(combinedMatrix, pt)) as Skeleton;
 }
 // Go back to a bounding box from a skeleton
-export function calcBBoxFromSkeleton(skel: Skeleton): ElementBBox {
+export function calcBBoxFromSkeleton(skel: PointObjectNotation[]): ElementBBox {
   const xs = skel.map((p) => p.x);
   const ys = skel.map((p) => p.y);
   const minX = Math.min(...xs);
