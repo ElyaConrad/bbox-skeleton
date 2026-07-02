@@ -30,6 +30,11 @@ export function bakeOriginIntoMatrix(coreMatrix: Matrix, origin: PointObjectNota
   );
 }
 
+// A matrix whose linear part is (numerically) non-invertible collapses geometry to a line/point
+export function coreTransformIsDegenerate(m: Matrix, epsilon = 1e-9) {
+  return Math.abs(m.a * m.d - m.b * m.c) < epsilon;
+}
+
 // Calculate the compensation delta to be applied to the geometry when changing the transform origin via d = (M_kern^(-1) - I) · (o_alt - o_neu)
 export function computeOriginCompensationDelta(coreMatrix: Matrix, oldOrigin: PointObjectNotation, newOrigin: PointObjectNotation): PointObjectNotation {
   const invCore = inverse(coreMatrix);

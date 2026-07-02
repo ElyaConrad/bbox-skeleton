@@ -134,6 +134,7 @@ type SimpleElementShape<Meta = {}> = {
   height: number;         // Local height
   coreTransform: Matrix;  // The transformation matrix (scale, rotate, skew)
   transformOrigin: PointObjectNotation; // Absolute transform origin point
+  relativeOrigin?: [number, number] | null; // If set, the origin is derived from the bbox and travels with it
   meta: Meta;             // Your custom metadata (element ID, etc.)
 };
 ```
@@ -373,6 +374,55 @@ Relative origins are often more intuitive:
 - `[0, 0]` = top-left corner
 - `[0.5, 0.5]` = center
 - `[1, 1]` = bottom-right corner
+
+### Relative (Traveling) Transform Origins
+
+Some engines don't store an absolute origin point at all — they store a **relative origin** and derive the absolute one from the current local bbox on every render:
+
+```
+o_abs = bbox.topLeft + relativeOrigin ⊙ bbox.size
+```
+
+This means the origin **travels with the geometry**. Declare this on the element:
+
+```typescript
+const element: SimpleElementShape = {
+  // ...
+  transformOrigin: { x: 200, y: 150 },  // current derived absolute origin
+  relativeOrigin: [0.5, 0.5],           // ← the origin travels with the bbox
+};
+```
+
+**Why this matters:** `applySkeletonInPlace` solves geometry against the element's *current* baked matrix — it assumes the origin stays fixed while the bbox changes. With a traveling origin, writing the solved bbox moves the origin, which changes the baked matrix, so the rendered result is **not** the target. In an interactive loop (re-solving every frame), the world-space error evolves as
+
+```
+e(n+1) = (I - M_core⁻¹) · e(n)
+```
+
+For a pure rotation θ the per-frame error ratio is `2·sin(θ/2)`: below 60° the element rubber-bands toward the target, at exactly 60° it permanently trails the cursor, and above 60° it **diverges exponentially** ("jumps away").
+
+**The fix:** after applying the solver's change records, run the origin compensation so the re-derived origin yields the *exact* visual result the solver intended:
+
+```typescript
+// 1. solve against the current (fixed-origin) matrices — unchanged
+const records = applySkeletonInPlace(element, targetSkeleton, worldMatrix);
+applyRecords(records);
+
+// 2. compensate: shift geometry so that rel ⊙ newBBox renders identically
+const { changes, transformOriginAbs } = adjustLocalBBoxForNewTransformOriginRelative(
+  element,
+  element.relativeOrigin!
+);
+applyRecords(changes);
+element.transformOrigin = transformOriginAbs;
+
+// 3. sync traveling origins of descendants (groups shift their subtree)
+rederiveRelativeOrigins(element);
+```
+
+The returned `transformOriginAbs` is the **fixpoint** of the derivation: `rel2absTransformOrigin(rel, compensatedBBox)` reproduces it exactly, so the engine's next re-derivation is a no-op and the loop is stable at any angle.
+
+**Groups:** a group's local bbox is derived from its children, so its traveling origin re-derives whenever any child moves — the same compensation must run for every affected ancestor group (deepest first). Compensation preserves the element's rendered result, so compensations at different tree levels are independent. Inside a group compensation, relative-origin children are shifted **uniformly by the compensation delta** (a local shift renders 1:1 in the parent space when the origin travels), while absolute-origin children are shifted by `lin(M)⁻¹ · d` — `shiftElementRenderedInParent` handles arbitrary mixed trees.
 
 ## Skeleton Projection Functions
 
@@ -760,7 +810,11 @@ However, bbox-skeleton is engine-agnostic and works equally well with:
 
 **Transform origin:**
 - `adjustLocalBBoxForNewTransformOrigin(element, newOriginAbs)` — Change origin (absolute)
-- `adjustLocalBBoxForNewTransformOriginRelative(element, relativeOrigin)` — Change origin (relative)
+- `adjustLocalBBoxForNewTransformOriginRelative(element, relativeOrigin)` — Change origin (relative); also the compensation step for traveling origins
+- `rel2absTransformOrigin(relativeOrigin, localBBox)` — Derive the absolute origin from a relative one
+- `rederiveRelativeOrigins(element)` — Re-sync traveling origins in a subtree after geometry changes
+- `shiftElementRenderedInParent(element, d)` — Shift an element's rendered result by `d`, respecting origin modes
+- `elementHasRelativeOrigin(element)` — Whether the element's origin travels with its bbox
 
 **Projection (from `projectSkeleton.ts`):**
 - `projectSkeletonFromCorner(baseSkeleton, worldMatrix, handleIndex, handlePos, aspectRatio)` — Corner resize
@@ -771,6 +825,7 @@ However, bbox-skeleton is engine-agnostic and works equally well with:
 
 - `bakeOriginIntoMatrix(coreMatrix, origin)` — Combine transform and origin
 - `computeOriginCompensationDelta(coreMatrix, oldOrigin, newOrigin)` — Calculate geometry shift needed
+- `coreTransformIsDegenerate(matrix)` — Whether the linear part is (numerically) non-invertible
 - `applyLinearPartOfMatrix(matrix, vector)` — Apply matrix without translation
 - `skewDEG(ax, ay)` — Create skew matrix from degrees
 - `radiansToDegrees(rad)` — Convert radians to degrees

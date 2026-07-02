@@ -1,5 +1,5 @@
 import { applyToPoint, compose, identity, inverse, Matrix } from 'transformation-matrix';
-import { applyLinearPartOfMatrix, bakeOriginIntoMatrix, computeOriginCompensationDelta, type ElementBBox, type Skeleton } from './graphic';
+import { applyLinearPartOfMatrix, bakeOriginIntoMatrix, computeOriginCompensationDelta, coreTransformIsDegenerate, type ElementBBox, type Skeleton } from './graphic';
 
 export type SimpleElementMeta = { [k: string]: unknown };
 
@@ -11,6 +11,9 @@ export type SimpleElementShape<Meta extends SimpleElementMeta = {}> = {
   height: number;
   coreTransform: Matrix;
   transformOrigin: PointObjectNotation;
+  // When set, transformOrigin is not a free absolute point but derived as localBBox.topLeft + relativeOrigin ⊙ localBBox.size —
+  // it travels with the geometry, so a local translation renders as the same world translation
+  relativeOrigin?: [number, number] | null;
   meta: Meta;
 };
 export type SimpleElementGroup<Meta extends SimpleElementMeta = {}> = {
@@ -18,6 +21,8 @@ export type SimpleElementGroup<Meta extends SimpleElementMeta = {}> = {
   children: SimpleElement<Meta>[];
   coreTransform: Matrix;
   transformOrigin: PointObjectNotation;
+  // Same semantics as on shapes; a group's local bbox is derived from its children's baked skeletons
+  relativeOrigin?: [number, number] | null;
   meta: Meta;
 };
 export type SimpleElement<Meta extends SimpleElementMeta = {}> = SimpleElementShape<Meta> | SimpleElementGroup<Meta>;
@@ -178,6 +183,60 @@ export function applySkeletonInPlace<Meta extends SimpleElementMeta>(el: SimpleE
 }
 
 
+// Whether the element's transform origin is derived from a relative origin (and therefore travels with its local bbox)
+export function elementHasRelativeOrigin(element: SimpleElement): boolean {
+  return Array.isArray(element.relativeOrigin);
+}
+
+// Derive the absolute transform origin from a relative origin and a local bbox (mirrors bluepic-core's rel2absTransformOrigin)
+export function rel2absTransformOrigin(relativeOrigin: [number, number], localBBox: ElementBBox): PointObjectNotation {
+  return {
+    x: localBBox.x + relativeOrigin[0] * localBBox.width,
+    y: localBBox.y + relativeOrigin[1] * localBBox.height,
+  };
+}
+
+// Recompute the absolute transformOrigin of every relative-origin element in the subtree from its current local bbox.
+// Children first, since a group's local bbox is derived from its children's baked skeletons.
+// Call this after applying change records that shifted geometry, so traveling origins stay in sync.
+export function rederiveRelativeOrigins(element: SimpleElement) {
+  if (element.type === 'group') {
+    for (const child of element.children) {
+      rederiveRelativeOrigins(child);
+    }
+  }
+  if (element.relativeOrigin) {
+    element.transformOrigin = rel2absTransformOrigin(element.relativeOrigin, getElementLocalBBox(element));
+  }
+}
+
+// Shift an element's rendered result in its parent's coordinate space by d, respecting the element's origin mode:
+// - relative origin: the origin travels with the bbox, so a local shift of d renders as exactly d — recurse with the SAME d
+// - absolute origin: the baked matrix is fixed, so the required local shift is lin(M)^(-1) · d
+export function shiftElementRenderedInParent<Meta extends SimpleElementMeta>(element: SimpleElement<Meta>, d: PointObjectNotation): ElementChangeRecord<Meta>[] {
+  if (elementHasRelativeOrigin(element)) {
+    if (element.type === 'shape') {
+      const bbox = getElementLocalBBox(element);
+      return [{ el: element, newLocalBBox: { ...bbox, x: bbox.x + d.x, y: bbox.y + d.y } }];
+    } else {
+      // A relative-origin group's bbox shifts by d exactly when its children's rendered results shift by d
+      return element.children.flatMap((child) => shiftElementRenderedInParent(child, d));
+    }
+  } else {
+    if (element.type === 'shape') {
+      const skeletonInParent = getElementSkeleton(element);
+      const skeletonShifted = translateSkeleton(skeletonInParent, d);
+      return applySkeletonInPlace(element, skeletonShifted, getBakedTransformMatrix(element));
+    } else {
+      // Fixed-origin group: rendered shift d requires shifting its content by lin(M)^(-1) · d
+      const localDelta = applyLinearPartOfMatrix(inverse(getBakedTransformMatrix(element)), d);
+      return element.children.flatMap((child) => shiftElementRenderedInParent(child, localDelta));
+    }
+  }
+}
+
+// NOTE: After applying the returned change records, call rederiveRelativeOrigins() on the element (or its tree root)
+// so that traveling origins of relative-origin descendants are updated to their new local bboxes.
 export function adjustLocalBBoxForNewTransformOrigin<Meta extends SimpleElementMeta>(
   element: SimpleElement<Meta>,
   newOriginAbs: PointObjectNotation
@@ -185,6 +244,11 @@ export function adjustLocalBBoxForNewTransformOrigin<Meta extends SimpleElementM
   changes: ElementChangeRecord<Meta>[];
   transformOriginAbs: PointObjectNotation;
 } {
+  // A degenerate core transform collapses the element anyway and cannot be compensated (inverse would blow up)
+  if (coreTransformIsDegenerate(element.coreTransform)) {
+    return { changes: [], transformOriginAbs: element.transformOrigin };
+  }
+
   // Calculate compensation delta which needs to be applied to geometry
   const delta = computeOriginCompensationDelta(element.coreTransform, element.transformOrigin, newOriginAbs);
 
@@ -196,17 +260,8 @@ export function adjustLocalBBoxForNewTransformOrigin<Meta extends SimpleElementM
       const shiftedSkeleton = translateSkeleton(baseSkeleton, delta);
       return applySkeletonInPlace(element, shiftedSkeleton, identity());
     } else {
-      // In case of group: Shift all children's skeletons in parent coordinates accordingly
-      return element.children.flatMap((child) => {
-        // The child skeleton in parent coordinates (without upper transformations)
-        const childSkeletonInParent = getElementSkeleton(child);
-
-        // Shift in parent coordinates
-        const childSkeletonShifted = translateSkeleton(childSkeletonInParent, delta);
-
-        // Recusively apply to child
-        return applySkeletonInPlace(child, childSkeletonShifted, getBakedTransformMatrix(child));
-      });
+      // In case of group: Shift all children's rendered results in parent coordinates accordingly
+      return element.children.flatMap((child) => shiftElementRenderedInParent(child, delta));
     }
   })();
 
@@ -225,6 +280,11 @@ export function adjustLocalBBoxForNewTransformOriginRelative<Meta extends Simple
   transformOriginAbs: PointObjectNotation;
 } {
   const [rx, ry] = relativeOrigin;
+
+  // A degenerate core transform collapses the element anyway and cannot be compensated (inverse would blow up)
+  if (coreTransformIsDegenerate(element.coreTransform)) {
+    return { changes: [], transformOriginAbs: element.transformOrigin };
+  }
 
   // Get inverse core matrix coefficients
   const invCore = inverse(element.coreTransform);

@@ -1,6 +1,6 @@
 {
   "name": "bbox-skeleton",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -25,11 +25,13 @@
   },
   "scripts": {
     "build": "tsup",
-    "dev": "tsup --watch"
+    "dev": "tsup --watch",
+    "test": "vitest run"
   },
   "devDependencies": {
     "tsup": "^8.5.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.9"
   },
   "dependencies": {
     "transformation-matrix": "^3.1.0"
