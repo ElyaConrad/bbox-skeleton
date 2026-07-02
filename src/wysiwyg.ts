@@ -74,6 +74,11 @@ export function getElementLocalBBox(element: SimpleElement): ElementBBox {
     const { x, y, width, height } = element;
     return { x, y, width, height };
   } else {
+    // Mirror bluepic-core's calcElementLocalBBox: an empty group has a zero bbox
+    // (Math.min/max over an empty array would yield ±Infinity)
+    if (element.children.length === 0) {
+      return { x: 0, y: 0, width: 0, height: 0 };
+    }
     const allChildrenSkeletons = element.children.map(getElementSkeleton);
     const allPoints = allChildrenSkeletons.flat();
     const xs = allPoints.map((pt) => pt.x);
